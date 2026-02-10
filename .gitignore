@@ -4,3 +4,9 @@
 # Arquivos compilador do Python 
 __pychace__/
 *.pyc
+
+# Banco de dados SQLite
+data/
+*.db
+*.sqlite
+*.sqlite3
