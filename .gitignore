@@ -10,3 +10,6 @@ data/
 *.db
 *.sqlite
 *.sqlite3
+
+# Variáveis de ambiente
+.env

@@ -41,11 +41,11 @@ class Database:
     # Métodos para o gerenciamento de contexto
  
     # Método de entrada do contexto
-    def __enter__(self) -> Self:
+     def __enter__(self) -> Self:
         return self
  
     # Método de saída do contexto
-    def __exit__(
+     def __exit__(
         self,
         exc_type: Optional[Type[BaseException]],
         exc_value: Optional[BaseException],
