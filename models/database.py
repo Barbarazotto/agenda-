@@ -19,26 +19,23 @@ def init_db(db_name: str = DB_PATH) -> None:
                      """)
 
 class Database:
-    def __init__(self, db_name: str = DB_PATH) -> None:
+     """
+          Classe que gerencia conexões e operações cp, um banco de dados SQLite. Utiliza o protocolo de gerenciamento de contexto para grantir que a conexão seja encerrada corretamente.
+     """
+     def __init__(self, db_name: str = DB_PATH) -> None:
         self.connection: Connection = connect(db_name)
         self.cursor: Cursor = self.connection.cursor()
-        self.executar("""
-        CREATE TABLE IF NOT EXISTS tarefas (
-         id INTEGER PRIMARY KEY AUTOINCREMENT,
-         titulo_tarefa TEXT NOT NULL,
-         data_conclusao TEXT);
-        """)
- 
-    def executar(self, query: str, params: tuple = ()) -> Cursor:
+        
+     def executar(self, query: str, params: tuple = ()) -> Cursor:
         self.cursor.execute(query, params)
         self.connection.commit()
         return self.cursor
  
-    def buscar_tudo(self, query: str, params: tuple = ()) -> list[Any]:
+     def buscar_tudo(self, query: str, params: tuple = ()) -> list[Any]:
         self.cursor.execute(query, params)
         return self.cursor.fetchall()
  
-    def close(self) -> None:
+     def close(self) -> None:
         self.connection.close()
  
     # Métodos para o gerenciamento de contexto
