@@ -2,153 +2,80 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* FUNDO */
 body {
+    background-color: #fff0f3 !important; /* ROSA CLARO */
+    background-image: none !important;    /* REMOVE GRADIENTE ROXO */
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* CARD PRINCIPAL */
-.container {
-    background: rgba(255, 255, 255, 0.95);
+.container-principal {
+    background-color: #ffffff; /* BRANCO */
     width: 100%;
-    max-width: 480px;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    animation: surgir 0.6s ease;
+    max-width: 500px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
 }
 
-@keyframes surgir {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* TÍTULO */
-h1 {
+.titulo {
+    color: #ff4d6d;
     text-align: center;
     margin-bottom: 25px;
-    color: #333;
-    letter-spacing: 1px;
+    font-size: 28px;
 }
 
-/* FORMULÁRIO */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-form input {
-    padding: 14px;
+.input-bonito {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 2px solid #ffccd5;
     border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-form input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
-form button {
+.btn-adicionar {
+    width: 100%;
     padding: 14px;
-    border-radius: 12px;
-    border: none;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-color: #ff4d6d;
     color: white;
-    font-size: 16px;
+    border: none;
+    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
 }
 
-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.4);
+.btn-adicionar:hover {
+    background-color: #ff758f;
 }
 
-/* TAREFAS */
-.tarefa {
-    background: #ffffff;
-    padding: 16px;
-    border-radius: 14px;
+.item-tarefa {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-    animation: fade 0.4s ease;
+    padding: 15px;
+    border-bottom: 1px solid #ffe5ec;
 }
 
-@keyframes fade {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.concluida-texto {
+    text-decoration: line-through;
+    color: #adb5bd;
 }
 
-.titulo {
-    font-weight: 600;
-    color: #333;
-    font-size: 15px;
-}
-
-/* DATA COMO BADGE */
-.data {
-    background: #667eea;
-    color: white;
+.btn-status {
+    border: none;
     padding: 6px 12px;
     border-radius: 20px;
-    font-size: 13px;
-}
-
-/* HOME */
-.home {
-    text-align: center;
-}
-
-.home p {
-    font-size: 18px;
-    color: #333;
-}
-
-.home a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 26px;
-    text-decoration: none;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    font-weight: bold;
-    transition: 0.3s;
+    font-size: 11px;
+    cursor: pointer;
 }
 
-.home a:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(118, 75, 162, 0.4);
-}
-
-
-
-
+.cor-concluir { background-color: #28a745; }
+.cor-reabrir { background-color: #dc3545; }

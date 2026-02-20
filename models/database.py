@@ -5,15 +5,17 @@ from dotenv import load_dotenv
 import traceback
 import os
 
-load_dotenv() #procura arquvi .env com variaveis
+load_dotenv() #procura arquivo .env com variaveis
 DB_PATH = os.getenv('DATABASE', './data/tarefas.sqlite3' )
 
 def init_db(db_name: str = DB_PATH) -> None:
     with connect(db_name) as conn:
         conn.execute("""CREATE TABLE IF NOT EXISTS tarefas (
-                        id INTERGER PRIMARY KEY AUTOINCREMENT, 
+                        id INTEGER PRIMARY KEY AUTOINCREMENT, 
                      titulo_tarefa TEXT NOT NULL,
-                     data_conclusao TEXT
+                     data_conclusao TEXT,
+                     concluida INTEGER DEFAULT 0,
+                     data_hora_conclusao TEXT
                      );
                      
                      """)
@@ -39,12 +41,9 @@ class Database:
         self.connection.close()
  
     # Métodos para o gerenciamento de contexto
- 
-    # Método de entrada do contexto
      def __enter__(self) -> Self:
         return self
  
-    # Método de saída do contexto
      def __exit__(
         self,
         exc_type: Optional[Type[BaseException]],
@@ -52,11 +51,7 @@ class Database:
         tb: Optional[TracebackType],
     ) -> None:
         if exc_type is not None:
-            print("Exceção capiturar no contexto: ")
+            print("Exceção capturada no contexto: ")
             print(f"Tipo: {exc_type.__name__}")
             print(f"Mensagem: {exc_value}")
-            print("Traceback completo:")
-            traceback.print_tb(tb)
- 
         self.close()
- 
